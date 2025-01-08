@@ -133,7 +133,7 @@ export function News() {
       </h3>
       <div className="news-item mb-4 p-3 border rounded-lg shadow-sm" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80px' }}>
         <p className="text-muted" style={{ textAlign: 'center', margin: 0 }}>
-          <strong>{score[0]?.stats[0]}</strong> от <strong>{score[0]?.stats[1]}</strong> новини от <strong>Медияпул</strong> съдържат сензационни изрази и думи.  - {Math.ceil((score[0]?.stats[0]/score[0]?.stats[1])*100)} %
+          <strong>{score[0]?.stats[0]}</strong> от <strong>{score[0]?.stats[1]}</strong> новини от <strong>Медиапул</strong> съдържат сензационни изрази и думи.  - {Math.ceil((score[0]?.stats[0]/score[0]?.stats[1])*100)} %
         </p>
       </div>
       <div className="news-item mb-4 p-3 border rounded-lg shadow-sm" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80px' }}>
