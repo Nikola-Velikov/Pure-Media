@@ -25,7 +25,7 @@ export function Navigation() {
           <ul className="navbar-nav mr-auto">
   <li className="nav-item">
     <Link className="nav-link" to="/" style={{ fontSize: '16px' }}>
-      Чиста медия - автоматизирана система за оценка на сензационост в новините
+    Прозрачна медия - автоматизирана система за оценка на сензационост в новините
     </Link>
   </li>
   <div className="nav-links-center">
