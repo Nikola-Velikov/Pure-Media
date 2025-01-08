@@ -15,60 +15,57 @@ async function start() {
     app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
     app.listen(3000, () => { console.log('App listening on port 3000') });
 
+    //await Matches.deleteMany({});
 
+    const findNewsByTitleAndMedia = async (title, media) => {
+        try {
+            const news = await News.findOne({ title: title, media: media });
+            return news;
+        } catch (err) {
+            console.error('Error finding news:', err);
+            return null;
+        }
+    };
 
-//     const findNewsByTitleAndMedia = async (title, media) => {
-//         try {
-//             const news = await News.findOne({ title: title, media: media });
-//             return news;
-//         } catch (err) {
-//             console.error('Error finding news:', err);
-//             return null;
-//         }
-//     };
+ const matchesData = JSON.parse(fs.readFileSync(path.join(__dirname, 'matches.json'), 'utf-8'));
 
-//  const matchesData = JSON.parse(fs.readFileSync(path.join(__dirname, 'matches.json'), 'utf-8'));
-
-//         // Loop through each match
-//         for (const match of matchesData) {
-//             // 1. Find the 'BTA' news article based on the title and media
-//             const btaNews = await findNewsByTitleAndMedia(match.title, 'BTA');
+        // Loop through each match
+        for (const match of matchesData) {
+            // 1. Find the 'BTA' news article based on the title and media
+            const btaNews = await findNewsByTitleAndMedia(match.title, 'BTA');
             
             
-//             if (btaNews) {
-//                 // 2. For each match, find the related news article by description and media
-//                 for (const matchItem of match.matches) {
-//                     //console.log(matchItem.content);
+            if (btaNews) {
+                // 2. For each match, find the related news article by description and media
+                for (const matchItem of match.matches) {
+                    //console.log(matchItem.content);
                     
-//                     const matchNews = await News.findOne({
-//                         title: matchItem.title, // Assuming you match by content/description
-//                         media: matchItem.media
-//                     });
+                    const matchNews = await News.findOne({
+                        title: matchItem.title, // Assuming you match by content/description
+                        media: matchItem.media
+                    });
 
-//                     if(match.title == "Събитията днес - ЛИК"){
-//                         console.log(matchNews);
-                        
-//                     }
+                   
 
-//                     if (matchNews) {
-//                        //console.log(matchNews);
+                    if (matchNews) {
+                       //console.log(matchNews);
                        
                         
-//                         // 3. Create a new entry in the Matches collection
-//                         const newMatch = new Matches({
-//                             btaNewId: btaNews._id,
-//                             matchNewId: matchNews._id
-//                         });
-
-                    
-//                         await newMatch.save();
-//                     }else{
-//                        // console.log(matchNews);
+                        // 3. Create a new entry in the Matches collection
+                        const newMatch = new Matches({
+                            btaNewId: btaNews._id,
+                            matchNewId: matchNews._id
+                        });
                         
-//                     }
-//                 }
-//             }
-//         }
+                    
+                      // await newMatch.save();
+                    }else{
+                       // console.log(matchNews);
+                        
+                    }
+                }
+            }
+        }
 //     async function saveNews(title, description, mediaName, image_url) {
 //         try {
 //             const news = new News({
