@@ -8,7 +8,7 @@ const fs = require('fs');
     // Set a higher default timeout for navigation
     page.setDefaultNavigationTimeout(60000); // 60 seconds
 
-    const baseUrl = 'https://www.24chasa.bg/novini/01/06/2025?page=';
+    const baseUrl = 'https://www.24chasa.bg/novini/vchera?page=';
     const totalPages = 15; // Update this to the total number of pages you want to scrape
     let results = [];
     const seenArticles = new Set(); // To keep track of unique articles
