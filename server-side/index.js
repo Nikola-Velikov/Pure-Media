@@ -1,10 +1,32 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const routesConfig = require('./config/routes.js');
 const databaseConfig = require('./config/database.js');
 const path = require('path');
 const News = require('./models/news.js');
 const fs = require('fs');
 const Matches = require('./models/matches.js');
+// const uploadData = async () => {
+//     try {
+//         console.log(1);
+//         const data = JSON.parse(fs.readFileSync('news.json', 'utf-8'));
+//         const formattedData = data.map(item => {
+//             return {
+//                  btaNewId : item.btaNewId ? new mongoose.Types.ObjectId(item.btaNewId.$oid) : undefined,
+//                  matchNewId :item.matchNewId ? new mongoose.Types.ObjectId(item.matchNewId.$oid) : undefined,
+//                  createdAt : item.createdAt ? new Date(parseInt(item.createdAt.$date.$numberLong)) : undefined,
+//                  updatedAt: item.updatedAt ? new Date(parseInt(item.updatedAt.$date.$numberLong)) : undefined
+    
+//             };
+//         });
+        
+//         await Matches.insertMany(formattedData);
+//         console.log('Data uploaded successfully!');
+//     } catch (error) {
+//         console.error('Upload error:', error);
+//     } 
+// };
+
 start();
 
 async function start() {
@@ -12,11 +34,12 @@ async function start() {
 
     await databaseConfig(app);
     routesConfig(app);
-    app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+   // app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
     app.listen(3000, () => { console.log('App listening on port 3000') });
 
     //await Matches.deleteMany({});
-
+   //  await uploadData()
+  
     const findNewsByTitleAndMedia = async (title, media) => {
         try {
             const news = await News.findOne({ title: title, media: media });

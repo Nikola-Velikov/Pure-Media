@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const CONNECTION_STRING = 'mongodb://127.0.0.1:27017/pure-media-production';
+const CONNECTION_STRING = 'mongodb://mongo:DVGEOtMaXukGAMZTKAbAiBZixpVRCBoh@yamabiko.proxy.rlwy.net:31684';
 
 module.exports = async function(app) {
     try{

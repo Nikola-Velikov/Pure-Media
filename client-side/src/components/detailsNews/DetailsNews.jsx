@@ -81,7 +81,7 @@ export function Details() {
     };
 
     getNews();
-  }, [id, phrases]);
+  }, [id]);
 
   return (
     <section className="section single-wrapper">
