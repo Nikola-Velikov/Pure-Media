@@ -1,5 +1,8 @@
 # Pure Media
 
+## Current Version
+The latest version of this project is in the **`version-3`** branch.
+
 ## Overview
 This project is designed to analyze and classify Bulgarian online news media based on their credibility. The system scrapes news articles, compares them against trusted sources, and determines their reliability by computing a 'fakeness coefficient.' The goal is to detect sensationalist journalism and provide an objective rating.
 
