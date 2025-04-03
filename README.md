@@ -3,6 +3,10 @@
 ## Current Version
 The latest version of this project is in the **`version-3`** branch.
 
+## Repositories (the diferent parts of the project are spread in different repositories that are frequently updated)
+- **Frontend Repository:** [GitHub Link](https://github.com/Nikola-Velikov/pure-media-front-end)
+- **Backend Repository:** [GitHub Link](https://github.com/Nikola-Velikov/pure-media-backend)
+- **Fine-tuned AI Model Repository:** [GitHub Link](https://github.com/Nikola-Velikov/PureMediaAI)
 ## Overview
 This project is designed to analyze and classify Bulgarian online news media based on their credibility. The system scrapes news articles, compares them against trusted sources, and determines their reliability by computing a 'fakeness coefficient.' The goal is to detect sensationalist journalism and provide an objective rating.
 
@@ -21,10 +25,6 @@ This project is designed to analyze and classify Bulgarian online news media bas
 - **Scraping:** Puppeteer
 - **Data Storage:** MongoDB
 
-## Repositories
-- **Frontend Repository:** [GitHub Link](https://github.com/Nikola-Velikov/pure-media-front-end)
-- **Backend Repository:** [GitHub Link](https://github.com/Nikola-Velikov/pure-media-backend)
-- **Fine-tuned AI Model Repository:** [GitHub Link](https://github.com/Nikola-Velikov/PureMediaAI)
 
 ## Installation & Setup
 
